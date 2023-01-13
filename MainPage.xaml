@@ -13,10 +13,7 @@
             Spacing="25"
             VerticalOptions="Center">
 
-            <Button
-                Command="{Binding SwitchPanelCommand}"
-                HeightRequest="30"
-                WidthRequest="30">
+            <Button Command="{Binding SwitchPanelCommand}" Text="With Converter">
                 <Button.ImageSource>
                     <FontImageSource
                         FontFamily="FASolid900"
@@ -25,26 +22,39 @@
                         Color="White" />
                 </Button.ImageSource>
 
-                <!--<Button.Triggers>
-                <DataTrigger
-                    Binding="{Binding IsPanelVisible}"
-                    TargetType="Button"
-                    Value="False">
-                    <Setter Property="FontImageSource.Glyph" Value="&#x2b;" />
-                </DataTrigger>
-                <DataTrigger
-                    Binding="{Binding IsPanelVisible}"
-                    TargetType="Button"
-                    Value="True">
-                    <Setter Property="FontImageSource.Glyph" Value="&#xf2b5;" />
-                </DataTrigger>
-            </Button.Triggers>-->
+
             </Button>
 
+
+            <Button Command="{Binding SwitchPanelCommand}" Text="WithDataTrigger">
+                <Button.ImageSource>
+                    <FontImageSource
+                        x:Name="LikeIconImageSource"
+                        FontFamily="FASolid900"
+                        Size="20"
+                        Color="White" />
+                </Button.ImageSource>
+
+                <Button.Triggers>
+                    <DataTrigger
+                        Binding="{Binding IsPanelVisible}"
+                        TargetType="Button"
+                        Value="False">
+                        <Setter TargetName="LikeIconImageSource" Property="FontImageSource.Glyph" Value="&#x2b;" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding IsPanelVisible}"
+                        TargetType="Button"
+                        Value="True">
+                        <Setter TargetName="LikeIconImageSource" Property="FontImageSource.Glyph" Value="&#xf2b5;" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
 
             <Image
                 HeightRequest="200"
                 HorizontalOptions="Center"
+                IsVisible="{Binding IsPanelVisible}"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 Source="dotnet_bot.png" />
 
