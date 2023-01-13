@@ -13,6 +13,7 @@
             Spacing="25"
             VerticalOptions="Center">
 
+            <!-- Converter -->
             <Button Command="{Binding SwitchPanelCommand}" Text="With Converter">
                 <Button.ImageSource>
                     <FontImageSource
@@ -26,6 +27,7 @@
             </Button>
 
 
+            <!-- datatrigger -->
             <Button Command="{Binding SwitchPanelCommand}" Text="WithDataTrigger">
                 <Button.ImageSource>
                     <FontImageSource
@@ -39,16 +41,29 @@
                     <DataTrigger
                         Binding="{Binding IsPanelVisible}"
                         TargetType="Button"
-                        Value="False">
+                        Value="true">
                         <Setter TargetName="LikeIconImageSource" Property="FontImageSource.Glyph" Value="&#x2b;" />
                     </DataTrigger>
                     <DataTrigger
                         Binding="{Binding IsPanelVisible}"
                         TargetType="Button"
-                        Value="True">
-                        <Setter TargetName="LikeIconImageSource" Property="FontImageSource.Glyph" Value="&#xf2b5;" />
+                        Value="false">
+                        <Setter TargetName="LikeIconImageSource" Property="FontImageSource.Glyph" Value="&#xf3c5;" />
                     </DataTrigger>
                 </Button.Triggers>
+            </Button>
+
+            <!-- no binding -->
+            <Button Command="{Binding SwitchPanelCommand}" Text="With Converter">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="FASolid900"
+                        Glyph="&#xf3c5;"
+                        Size="20"
+                        Color="White" />
+                </Button.ImageSource>
+
+
             </Button>
 
             <Image
