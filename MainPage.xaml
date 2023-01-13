@@ -16,7 +16,6 @@
             <Button
                 Command="{Binding SwitchPanelCommand}"
                 HeightRequest="30"
-                HorizontalOptions="End"
                 WidthRequest="30">
                 <Button.ImageSource>
                     <FontImageSource
@@ -31,7 +30,7 @@
                     Binding="{Binding IsPanelVisible}"
                     TargetType="Button"
                     Value="False">
-                    <Setter Property="FontImageSource.Size" Value="&#x2b;" />
+                    <Setter Property="FontImageSource.Glyph" Value="&#x2b;" />
                 </DataTrigger>
                 <DataTrigger
                     Binding="{Binding IsPanelVisible}"
